@@ -1,0 +1,27 @@
+
+version: '3.9'
+
+services:
+### MongoDB ##############################################
+  mongo:
+    build:
+      context: ./.docker/bin/mongo
+    ports:
+      - "${MONGODB_PORT:-27117}:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+    volumes:
+      - ./.docker/data/mongo/data:/data/db
+      - ./.docker/data/mongo/mongo_config:/data/configdb
+    deploy:
+      resources:
+        limits:
+          cpus: '0.500'
+          memory: 512M
+        reservations:
+          cpus: '0.100'
+          memory: 256M
+
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'

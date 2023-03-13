@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
-import config from 'config';
+import config from '../config/config';
 
-const mongodbUrl = config.get('database.mongoUrl');
+console.log(config.database.mongoUrl)
+
+const mongodbUrl = config.database.mongoUrl;
 
 const connect = () =>
   mongoose.connect(mongodbUrl, {

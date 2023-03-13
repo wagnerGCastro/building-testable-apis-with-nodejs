@@ -51,3 +51,16 @@ dist
 
 package-lock.json
 .DS_Store
+
+.env.development
+.env.production
+.env.production
+
+readme.txt
+
+.docker/data/*
+!.docker/data/.gitkeep
+
+.docker/logs/*
+!.docker/logs/.gitkeep
+api.test.http
