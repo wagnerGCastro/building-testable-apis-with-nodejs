@@ -18,6 +18,7 @@ const configureExpress = () => {
   app.use(acl.authorize.unless({ path: ['/users/authenticate'] }));
 
   app.use('/', routes);
+
   app.database = database;
 
   return app;
