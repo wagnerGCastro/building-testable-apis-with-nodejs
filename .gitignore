@@ -64,3 +64,5 @@ readme.txt
 .docker/logs/*
 !.docker/logs/.gitkeep
 api.test.http
+
+.vscode

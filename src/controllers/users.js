@@ -15,7 +15,7 @@ class UsersController {
 
   async getById(req, res) {
     const {
-      params: { id }
+      params: { id },
     } = req;
 
     try {
@@ -38,7 +38,7 @@ class UsersController {
   }
 
   async update(req, res) {
-    const body = req.body;
+    const { body } = req;
     try {
       const user = await this.User.findById(req.params.id);
 
@@ -75,7 +75,7 @@ class UsersController {
       name: user.name,
       email: user.email,
       password: user.password,
-      role: user.role
+      role: user.role,
     });
     return res.send({ token });
   }
