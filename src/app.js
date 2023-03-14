@@ -1,15 +1,16 @@
+import acl from 'express-acl';
 import express from 'express';
 import bodyParser from 'body-parser';
 import routes from './routes';
 import database from './database';
-import acl from 'express-acl';
+
 import authMiddleware from './middlewares/auth';
 
 const app = express();
 
 acl.config({
   baseUrl: '/',
-  path: 'config'
+  path: 'config',
 });
 
 const configureExpress = () => {

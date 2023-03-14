@@ -19,7 +19,7 @@ class Auth {
 
   static generateToken(payload) {
     return jwt.sign(payload, config.get('auth.key'), {
-      expiresIn: config.get('auth.tokenExpiresIn')
+      expiresIn: config.get('auth.tokenExpiresIn'),
     });
   }
 }
