@@ -1,12 +1,11 @@
 import setupApp from './app';
-const port =  process.env.PORT | 3056;
+
+const port = process.env.PORT || 3056;
 
 (async () => {
   try {
     const app = await setupApp();
-    const server = app.listen(port, () =>
-      console.info(`app running on port ${port}`)
-    );
+    const server = app.listen(port, () => console.info(`app running on port ${port}`));
 
     const exitSignals = ['SIGINT', 'SIGTERM', 'SIGQUIT'];
     exitSignals.map(sig =>
@@ -16,12 +15,12 @@ const port =  process.env.PORT | 3056;
             console.error(err);
             process.exit(1);
           }
-          app.database.connection.close(function() {
+          app.database.connection.close(function () {
             console.info('Database connection closed!');
             process.exit(0);
           });
-        })
-      )
+        }),
+      ),
     );
   } catch (error) {
     console.error(error);

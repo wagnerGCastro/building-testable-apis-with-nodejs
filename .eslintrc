@@ -1,34 +1,50 @@
 {
   "env": {
     "mocha": true,
-      "node": true,
-      "es6": true
+    "node": true,
+    "es6": true,
+    "jest": true
   },
-    "extends": [
-      "eslint:recommended",
-    "plugin:node/recommended"
-    ],
-    "rules": {
-      "node/no-unsupported-features/es-syntax": [
-        "error",
-      {
-        "version": ">=8.0.0",
-        "ignores": [
-          "modules"
-        ]
-      }
-      ],
-      "no-console": "off",
-      "no-process-exit": "off"
-    },
-    "parser": "babel-eslint",
-    "globals": {
-      "expect": true,
-      "request": true,
-      "setupApp": true,
-      "supertest": true
-    },
-    "parserOptions": {
-      "sourceType": "module"
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "babel-eslint",
+  "globals": {
+    "expect": true,
+    "request": true,
+    "setupApp": true,
+    "supertest": true,
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier", "import"],
+  "rules": {
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+    {
+      "version": ">=8.0.0",
+      "ignores": [
+        "modules"
+      ]
     }
+    ],
+    "no-console": "off",
+    "no-process-exit": "off",
+    "prettier/prettier": "error",
+    "class-methods-use-this": "off",
+    "no-param-reassign": "off",
+    "camelcase": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
+    "strict": "off",
+    "import/prefer-default-export": "off",
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "func-names": "off"
+  }
 }
